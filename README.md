@@ -1,5 +1,9 @@
 # Sentinal
 
+[![npm](https://img.shields.io/npm/v/@md-musaraf/sentinal-mcp)](https://www.npmjs.com/package/@md-musaraf/sentinal-mcp)
+[![Glama](https://glama.ai/mcp/servers/Musaraf-M/sentinal/badges/score.svg)](https://glama.ai/mcp/servers/Musaraf-M/sentinal)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Infrastructure monitoring tools for AI assistants. One codebase, multiple platforms.
 
 Ask your AI assistant to check Redis health, inspect BullMQ queues, diagnose slow queries — all through natural conversation.
