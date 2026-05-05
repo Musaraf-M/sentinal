@@ -1,0 +1,49 @@
+{
+  "name": "@infrawatch/mcp",
+  "version": "1.0.0",
+  "description": "InfraWatch MCP Server — Infrastructure monitoring tools for AI assistants. Works with Claude, Cursor, Copilot, Cline, Warp, Gemini CLI, and more.",
+  "license": "MIT",
+  "author": "musaraf",
+  "type": "module",
+  "bin": {
+    "infrawatch-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "ioredis": "^5.6.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "infrawatch",
+    "redis",
+    "bullmq",
+    "monitoring",
+    "devops",
+    "infrastructure",
+    "claude",
+    "cursor",
+    "copilot"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/musaraf/infrawatch",
+    "directory": "platforms/mcp"
+  }
+}

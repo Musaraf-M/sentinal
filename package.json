@@ -1,0 +1,19 @@
+{
+  "name": "infrawatch",
+  "version": "1.0.0",
+  "description": "Infrastructure monitoring tools for AI assistants — MCP server, OpenClaw skills, and more",
+  "private": true,
+  "license": "MIT",
+  "author": "musaraf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/musaraf/infrawatch"
+  },
+  "scripts": {
+    "build": "pnpm --filter @infrawatch/mcp build",
+    "dev": "pnpm --filter @infrawatch/mcp dev",
+    "lint": "pnpm --filter @infrawatch/mcp lint",
+    "publish:clawhub": "bash scripts/publish-clawhub.sh",
+    "publish:mcp": "pnpm --filter @infrawatch/mcp publish"
+  }
+}
