@@ -1,8 +1,8 @@
 ---
-name: infrawatch-redis
+name: sentinal-redis
 description: "Monitor Redis server health, memory, performance, and BullMQ queues. Check queue depths, inspect failed jobs, analyze slow queries, and diagnose issues."
 version: 1.0.0
-homepage: https://github.com/musaraf/infrawatch-redis
+homepage: https://github.com/Musaraf-M/sentinal
 user-invocable: true
 metadata:
   openclaw:
@@ -31,7 +31,7 @@ metadata:
         os: ["linux"]
 ---
 
-# InfraWatch Redis
+# Sentinal Redis
 
 Monitor Redis server health, BullMQ queues, memory, and performance from any messaging channel. Ask questions in plain English — get actionable diagnostics.
 

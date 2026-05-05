@@ -5,7 +5,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { registerRedisTools } from "./tools/redis.js";
 
 const server = new McpServer({
-  name: "infrawatch",
+  name: "sentinal",
   version: "1.0.0",
 });
 
@@ -19,7 +19,7 @@ registerRedisTools(server);
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("InfraWatch MCP server running on stdio");
+  console.error("Sentinal MCP server running on stdio");
 }
 
 main().catch((error) => {

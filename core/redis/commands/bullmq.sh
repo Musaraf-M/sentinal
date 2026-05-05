@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# InfraWatch — BullMQ Queue Inspector
+# Sentinal — BullMQ Queue Inspector
 # Usage: bash bullmq.sh <command> [args] [REDIS_URL]
 #
 # Commands:
@@ -120,7 +120,7 @@ case "$COMMAND" in
         ;;
 
     help|*)
-        echo "InfraWatch BullMQ Inspector"
+        echo "Sentinal BullMQ Inspector"
         echo ""
         echo "Usage: bullmq.sh <command> [args]"
         echo ""

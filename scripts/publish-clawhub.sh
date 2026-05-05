@@ -4,7 +4,7 @@ set -euo pipefail
 
 SKILLS_DIR="platforms/openclaw"
 
-for skill_dir in "$SKILLS_DIR"/infrawatch-*; do
+for skill_dir in "$SKILLS_DIR"/sentinal-*; do
     if [ -f "$skill_dir/SKILL.md" ]; then
         slug=$(basename "$skill_dir")
         echo "Publishing $slug..."

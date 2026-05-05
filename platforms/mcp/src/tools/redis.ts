@@ -91,7 +91,7 @@ export function registerRedisTools(server: McpServer): void {
 
           const lines: string[] = [];
           lines.push("╔════════════════════════════════════════╗");
-          lines.push("║     InfraWatch Redis Health Report     ║");
+          lines.push("║     Sentinal Redis Health Report       ║");
           lines.push("╚════════════════════════════════════════╝");
           lines.push(`  Target: ${redis_url}`);
           lines.push(`  Time:   ${new Date().toISOString()}`);

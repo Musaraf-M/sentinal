@@ -1,4 +1,4 @@
-# InfraWatch
+# Sentinal
 
 Infrastructure monitoring tools for AI assistants. One codebase, multiple platforms.
 
@@ -8,8 +8,8 @@ Ask your AI assistant to check Redis health, inspect BullMQ queues, diagnose slo
 
 | Platform | Distribution | Install |
 |---|---|---|
-| **Claude, Cursor, Copilot, Cline, Warp, Gemini CLI** | MCP Server (npm) | `npx @infrawatch/mcp` |
-| **OpenClaw** | ClawHub | `clawhub install infrawatch-redis` |
+| **Claude, Cursor, Copilot, Cline, Warp, Gemini CLI** | MCP Server (npm) | `npx @md-musaraf/sentinal-mcp` |
+| **OpenClaw** | ClawHub | `clawhub install sentinal-redis` |
 | **ChatGPT** | GPT Store | Coming soon |
 | **Raycast** | Raycast Store | Coming soon |
 
@@ -34,9 +34,9 @@ Add to your MCP client config:
 ```json
 {
   "mcpServers": {
-    "infrawatch": {
+    "sentinal": {
       "command": "npx",
-      "args": ["@infrawatch/mcp"],
+      "args": ["@md-musaraf/sentinal-mcp"],
       "env": {
         "REDIS_URL": "redis://localhost:6379"
       }
@@ -74,7 +74,7 @@ Just ask your AI assistant:
 Install individual skills from [ClawHub](https://clawhub.ai):
 
 ```bash
-clawhub install infrawatch-redis
+clawhub install sentinal-redis
 ```
 
 The skill teaches your OpenClaw assistant to monitor Redis and BullMQ using `redis-cli`. No code required — just install and ask.
@@ -82,7 +82,7 @@ The skill teaches your OpenClaw assistant to monitor Redis and BullMQ using `red
 ## Project Structure
 
 ```
-infrawatch/
+sentinal/
 ├── core/                     # Shared knowledge and scripts
 │   ├── redis/
 │   ├── docker/
@@ -105,8 +105,8 @@ infrawatch/
 ### Setup
 
 ```bash
-git clone https://github.com/musaraf/infrawatch.git
-cd infrawatch
+git clone https://github.com/Musaraf-M/sentinal.git
+cd sentinal
 pnpm install
 ```
 

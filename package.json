@@ -1,19 +1,19 @@
 {
-  "name": "infrawatch",
+  "name": "sentinal",
   "version": "1.0.0",
   "description": "Infrastructure monitoring tools for AI assistants — MCP server, OpenClaw skills, and more",
   "private": true,
   "license": "MIT",
-  "author": "musaraf",
+  "author": "Musaraf-M",
   "repository": {
     "type": "git",
-    "url": "https://github.com/musaraf/infrawatch"
+    "url": "https://github.com/Musaraf-M/sentinal"
   },
   "scripts": {
-    "build": "pnpm --filter @infrawatch/mcp build",
-    "dev": "pnpm --filter @infrawatch/mcp dev",
-    "lint": "pnpm --filter @infrawatch/mcp lint",
+    "build": "pnpm --filter @md-musaraf/sentinal-mcp build",
+    "dev": "pnpm --filter @md-musaraf/sentinal-mcp dev",
+    "lint": "pnpm --filter @md-musaraf/sentinal-mcp lint",
     "publish:clawhub": "bash scripts/publish-clawhub.sh",
-    "publish:mcp": "pnpm --filter @infrawatch/mcp publish"
+    "publish:mcp": "pnpm --filter @md-musaraf/sentinal-mcp publish"
   }
 }
