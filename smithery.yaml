@@ -1,0 +1,41 @@
+name: sentinal-mcp
+description: Infrastructure monitoring MCP server — Redis health, memory analysis, BullMQ queue monitoring, slow query diagnostics
+version: 1.0.0
+license: MIT
+author: Musaraf-M
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      REDIS_URL:
+        type: string
+        description: Redis connection URL
+        default: redis://localhost:6379
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['@md-musaraf/sentinal-mcp'],
+      env: {
+        REDIS_URL: config.REDIS_URL ?? 'redis://localhost:6379'
+      }
+    })
+
+tools:
+  - name: redis_ping
+    description: Test connectivity to a Redis instance
+  - name: redis_health
+    description: Full health report — server, memory, clients, slow queries, BullMQ queues
+  - name: redis_memory
+    description: Deep memory analysis with fragmentation diagnostics
+  - name: redis_slowlog
+    description: Inspect slow queries
+  - name: bullmq_list
+    description: List all BullMQ queues with job counts per state
+  - name: bullmq_failed_jobs
+    description: Inspect failed jobs with payloads and stack traces
+  - name: bullmq_job_details
+    description: Full details of a specific job
+  - name: bullmq_stale_jobs
+    description: Find jobs stuck in active state

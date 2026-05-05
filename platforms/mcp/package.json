@@ -1,6 +1,6 @@
 {
   "name": "@md-musaraf/sentinal-mcp",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Sentinal MCP Server — Infrastructure monitoring tools for AI assistants. Works with Claude, Cursor, Copilot, Cline, Warp, Gemini CLI, and more.",
   "license": "MIT",
   "author": "Musaraf-M",
@@ -41,6 +41,7 @@
     "cursor",
     "copilot"
   ],
+  "mcpName": "io.github.Musaraf-M/sentinal-mcp",
   "repository": {
     "type": "git",
     "url": "https://github.com/Musaraf-M/sentinal",
