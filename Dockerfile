@@ -3,8 +3,10 @@ FROM node:22-slim
 WORKDIR /app
 
 COPY platforms/mcp/package.json ./
-RUN npm install --omit=dev
+COPY platforms/mcp/tsconfig.json ./
+COPY platforms/mcp/src/ ./src/
 
-COPY platforms/mcp/dist/ ./dist/
+RUN npm install
+RUN npx tsc
 
 ENTRYPOINT ["node", "dist/index.js"]
