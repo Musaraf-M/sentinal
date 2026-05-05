@@ -7,6 +7,9 @@ set -euo pipefail
 REDIS_URL="${1:-redis://localhost:6379}"
 CLI="redis-cli -u $REDIS_URL"
 
+# Mask credentials in URL for display (redis://:password@host → redis://***@host)
+SAFE_URL=$(echo "$REDIS_URL" | sed -E 's|(://)[^@]*@|\1***@|')
+
 divider() { echo "────────────────────────────────────────"; }
 header() { echo ""; divider; echo "  $1"; divider; }
 warn() { echo "  ⚠ WARNING: $1"; }
@@ -16,7 +19,7 @@ echo ""
 echo "╔════════════════════════════════════════╗"
 echo "║     Sentinal Redis Health Report       ║"
 echo "╚════════════════════════════════════════╝"
-echo "  Target: $REDIS_URL"
+echo "  Target: $SAFE_URL"
 echo "  Time:   $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 # Connectivity
@@ -24,7 +27,7 @@ header "CONNECTIVITY"
 if $CLI ping 2>/dev/null | grep -q PONG; then
     ok "Redis is reachable"
 else
-    echo "  ✗ CRITICAL: Cannot connect to Redis at $REDIS_URL"
+    echo "  ✗ CRITICAL: Cannot connect to Redis at $SAFE_URL"
     exit 1
 fi
 

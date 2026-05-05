@@ -15,6 +15,9 @@ COMMAND="${1:-help}"
 REDIS_URL="${REDIS_URL:-redis://localhost:6379}"
 CLI="redis-cli -u $REDIS_URL"
 
+# Mask credentials in URL for display
+SAFE_URL=$(echo "$REDIS_URL" | sed -E 's|(://)[^@]*@|\1***@|')
+
 case "$COMMAND" in
     list)
         echo "BullMQ Queues:"

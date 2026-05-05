@@ -23,6 +23,10 @@ async function withRedis<T>(
   }
 }
 
+function maskUrl(url: string): string {
+  return url.replace(/:\/\/[^@]*@/, "://***@");
+}
+
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes}B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)}KB`;
@@ -52,7 +56,7 @@ export function registerRedisTools(server: McpServer): void {
             {
               type: "text",
               text: result === "PONG"
-                ? `✓ Redis is reachable at ${redis_url}`
+                ? `✓ Redis is reachable at ${maskUrl(redis_url)}`
                 : `✗ Unexpected response: ${result}`,
             },
           ],
@@ -62,7 +66,7 @@ export function registerRedisTools(server: McpServer): void {
           content: [
             {
               type: "text",
-              text: `✗ Cannot connect to Redis at ${redis_url}: ${error instanceof Error ? error.message : String(error)}`,
+              text: `✗ Cannot connect to Redis at ${maskUrl(redis_url)}: ${error instanceof Error ? error.message : String(error)}`,
             },
           ],
           isError: true,
@@ -93,7 +97,7 @@ export function registerRedisTools(server: McpServer): void {
           lines.push("╔════════════════════════════════════════╗");
           lines.push("║     Sentinal Redis Health Report       ║");
           lines.push("╚════════════════════════════════════════╝");
-          lines.push(`  Target: ${redis_url}`);
+          lines.push(`  Target: ${maskUrl(redis_url)}`);
           lines.push(`  Time:   ${new Date().toISOString()}`);
           lines.push("");
 

@@ -56,10 +56,10 @@ Monitor Redis server health, BullMQ queues, memory, and performance from any mes
 
 ## Safety Rules
 
-⚠️ CRITICAL: This skill is READ-ONLY by default.
-- NEVER run destructive commands (`FLUSHDB`, `FLUSHALL`, `DEL`, `UNLINK`, `SET`, `EXPIRE`) unless the user EXPLICITLY requests it
-- NEVER modify Redis configuration (`CONFIG SET`) unless the user EXPLICITLY requests it
-- ALWAYS warn the user before running any write operation on a production instance
+⚠️ CRITICAL: This skill is READ-ONLY. No exceptions.
+- NEVER run destructive commands (`FLUSHDB`, `FLUSHALL`, `DEL`, `UNLINK`, `SET`, `EXPIRE`) — even if the user asks. Explain why and suggest they run it manually instead.
+- NEVER modify Redis configuration (`CONFIG SET`) — direct the user to do it themselves.
+- NEVER print or expose the full `REDIS_URL` in output — it may contain passwords. Always mask credentials before displaying.
 - When in doubt, show the command first and ask for confirmation
 
 ## Connection
