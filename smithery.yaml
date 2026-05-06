@@ -1,6 +1,6 @@
 name: sentinal-mcp
-description: Infrastructure monitoring MCP server — Redis health, memory analysis, BullMQ queue monitoring, slow query diagnostics
-version: 1.0.0
+description: Infrastructure monitoring MCP server — Redis health, memory analysis, BullMQ queue monitoring, slow query diagnostics, Sumo Logic log search, metrics, collectors, dashboards, and monitors
+version: 1.1.0
 license: MIT
 author: Musaraf-M
 
@@ -13,12 +13,25 @@ startCommand:
         type: string
         description: Redis connection URL
         default: redis://localhost:6379
+      SUMO_ACCESS_ID:
+        type: string
+        description: Sumo Logic Access ID
+      SUMO_ACCESS_KEY:
+        type: string
+        description: Sumo Logic Access Key
+      SUMO_REGION:
+        type: string
+        description: "Sumo Logic region (us1, us2, eu, au, de, jp, ca, in, fed)"
+        default: us1
   commandFunction: |-
     (config) => ({
       command: 'npx',
       args: ['@md-musaraf/sentinal-mcp'],
       env: {
-        REDIS_URL: config.REDIS_URL ?? 'redis://localhost:6379'
+        REDIS_URL: config.REDIS_URL ?? 'redis://localhost:6379',
+        SUMO_ACCESS_ID: config.SUMO_ACCESS_ID ?? '',
+        SUMO_ACCESS_KEY: config.SUMO_ACCESS_KEY ?? '',
+        SUMO_REGION: config.SUMO_REGION ?? 'us1'
       }
     })
 
@@ -39,3 +52,19 @@ tools:
     description: Full details of a specific job
   - name: bullmq_stale_jobs
     description: Find jobs stuck in active state
+  - name: sumo_ping
+    description: Test connectivity and authentication to Sumo Logic
+  - name: sumo_health
+    description: Comprehensive Sumo Logic health report — collectors, monitors, account overview
+  - name: sumo_search
+    description: Run a raw Sumo Logic query with full query language support
+  - name: sumo_logs
+    description: Simple log search by keyword, source, or category
+  - name: sumo_metrics
+    description: Query Sumo Logic time-series metrics
+  - name: sumo_dashboards
+    description: List dashboards with name, ID, and folder
+  - name: sumo_monitors
+    description: List monitors and alerts, filter by status
+  - name: sumo_collectors
+    description: List collectors with health status

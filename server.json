@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Musaraf-M/sentinal-mcp",
-  "description": "Redis health, BullMQ queue monitoring, memory analysis, and slow query diagnostics",
+  "description": "Infrastructure monitoring — Redis health, BullMQ queues, Sumo Logic log search, metrics, collectors, dashboards, and monitors",
   "repository": {
     "url": "https://github.com/Musaraf-M/sentinal",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@md-musaraf/sentinal-mcp",
-      "version": "1.0.5",
+      "version": "1.1.0",
       "transport": {
         "type": "stdio"
       },
@@ -22,6 +22,27 @@
           "format": "string",
           "isSecret": true,
           "name": "REDIS_URL"
+        },
+        {
+          "description": "Sumo Logic Access ID",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true,
+          "name": "SUMO_ACCESS_ID"
+        },
+        {
+          "description": "Sumo Logic Access Key",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true,
+          "name": "SUMO_ACCESS_KEY"
+        },
+        {
+          "description": "Sumo Logic region (us1, us2, eu, au, de, jp, ca, in, fed)",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "SUMO_REGION"
         }
       ]
     }
