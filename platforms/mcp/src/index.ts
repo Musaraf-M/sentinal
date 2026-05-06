@@ -3,14 +3,16 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { registerRedisTools } from "./tools/redis.js";
+import { registerSumoLogicTools } from "./tools/sumologic.js";
 
 const server = new McpServer({
   name: "sentinal",
-  version: "1.0.0",
+  version: "1.1.0",
 });
 
 // Register all tool modules
 registerRedisTools(server);
+registerSumoLogicTools(server);
 
 // Future: registerDockerTools(server);
 // Future: registerKubernetesTools(server);

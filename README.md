@@ -6,14 +6,14 @@
 
 Infrastructure monitoring tools for AI assistants. One codebase, multiple platforms.
 
-Ask your AI assistant to check Redis health, inspect BullMQ queues, diagnose slow queries — all through natural conversation.
+Ask your AI assistant to check Redis health, inspect BullMQ queues, search Sumo Logic logs, monitor collectors — all through natural conversation.
 
 ## Platforms
 
 | Platform | Distribution | Install |
 |---|---|---|
 | **Claude, Cursor, Copilot, Cline, Warp, Gemini CLI** | MCP Server (npm) | `npx @md-musaraf/sentinal-mcp` |
-| **OpenClaw** | ClawHub | `clawhub install sentinal-redis` |
+| **OpenClaw** | ClawHub | `clawhub install sentinal-redis` / `clawhub install sentinal-sumologic` |
 | **ChatGPT** | GPT Store | Coming soon |
 | **Raycast** | Raycast Store | Coming soon |
 
@@ -22,6 +22,7 @@ Ask your AI assistant to check Redis health, inspect BullMQ queues, diagnose slo
 | Module | Status | What it monitors |
 |---|---|---|
 | **Redis** | ✅ Ready | Server health, memory, slow queries, clients, BullMQ queues |
+| **Sumo Logic** | ✅ Ready | Log search, metrics, collectors, dashboards, monitors, alerts |
 | **Docker** | 🔜 Planned | Container health, logs, resource usage |
 | **Kubernetes** | 🔜 Planned | Pod status, restart counts, resource limits |
 | **GitHub Actions** | 🔜 Planned | Workflow runs, failures, re-triggers |
@@ -42,7 +43,10 @@ Add to your MCP client config:
       "command": "npx",
       "args": ["@md-musaraf/sentinal-mcp"],
       "env": {
-        "REDIS_URL": "redis://localhost:6379"
+        "REDIS_URL": "redis://localhost:6379",
+        "SUMO_ACCESS_ID": "your-access-id",
+        "SUMO_ACCESS_KEY": "your-access-key",
+        "SUMO_REGION": "us1"
       }
     }
   }
@@ -61,6 +65,14 @@ Add to your MCP client config:
 | `bullmq_failed_jobs` | Inspect failed jobs with payloads and stack traces |
 | `bullmq_job_details` | Full details of a specific job |
 | `bullmq_stale_jobs` | Find jobs stuck in active state |
+| `sumo_ping` | Test connectivity and authentication to Sumo Logic |
+| `sumo_health` | Comprehensive Sumo Logic health report — collectors, monitors, account |
+| `sumo_search` | Run a raw Sumo Logic query with full query language support |
+| `sumo_logs` | Simple log search by keyword, source, or category |
+| `sumo_metrics` | Query Sumo Logic time-series metrics |
+| `sumo_dashboards` | List dashboards with name, ID, and description |
+| `sumo_monitors` | List monitors and alerts, filter by status |
+| `sumo_collectors` | List collectors with health status (alive/dead) |
 
 ### Example Usage
 
@@ -72,6 +84,11 @@ Just ask your AI assistant:
 - *"Why is Redis slow?"*
 - *"How much memory is Redis using?"*
 - *"Find stale jobs in the payment-queue"*
+- *"Check my Sumo Logic health"*
+- *"Search logs for 'error 500' in the last hour"*
+- *"Are any Sumo Logic collectors offline?"*
+- *"Show me alerting monitors"*
+- *"Query CPU metrics from Sumo Logic"*
 
 ## OpenClaw Skills
 
